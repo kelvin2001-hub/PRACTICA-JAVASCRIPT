@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tienda de Coches</title>
+</head>
+<body>
+    <h1>Tienda de Coches</h1>
+    <form id="formCoche">
+        <label for="modelo">Selecciona el modelo del coche:</label>
+        <select id="modelo" name="modelo">
+            <option value="FORD FIESTA">FORD FIESTA</option>
+            <option value="FORD FOCUS">FORD FOCUS</option>
+            <option value="FORD ESCAPE">FORD ESCAPE</option>
+            <option value="FORD MUSTANG">FORD MUSTANG</option>
+        </select>
+        <button type="button" onclick="calcularDescuento()">Calcular Descuento</button>
+    </form>
+
+    <div id="resultado"></div>
+
+    <script>
+        function calcularDescuento() {
+            const modelo = document.getElementById("modelo").value;
+            let descuento;
+            switch (modelo) {
+                case "FORD FIESTA":
+                    descuento = 5;
+                    break;
+                case "FORD FOCUS":
+                    descuento = 10;
+                    break;
+                case "FORD ESCAPE":
+                    descuento = 20;
+                    break;
+                case "FORD MUSTANG":
+                    descuento = 50;
+                    break;
+                default:
+                    descuento = 0;
+                    break;
+            }
+
+            // Mostrar el resultado en HTML
+            const resultadoDiv = document.getElementById("resultado");
+            resultadoDiv.innerHTML = `
+                <h2>Resultado:</h2>
+                <p>Coche seleccionado: ${modelo}</p>
+                <p>Descuento aplicado: ${descuento}%</p>
+            `;
+        }
+    </script>
+</body>
+</html>
